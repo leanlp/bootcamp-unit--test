@@ -31,6 +31,7 @@ async function main()  {
     const targetAddress5 = "0xBE5B70bD08D22fA8589096CC6c72236FecF3e1c3";
 const targetAddress6 = "0xE684E017d41D4AB9F924a572a316C4BEa9e4152f";
 const targetAddressDeployer = "0x2924a6C59115299A5945cA1dF6D73ABA526C97bd";
+const targetAddressCoWork = "0xA900A71B384698F0BAdFe2175CA8e5627Fefff43"
     // const targetAddress = process.argv[2]
    
     const provider = ethers.getDefaultProvider("goerli", {infura: process.env.INFURA_API_KEY});
@@ -44,23 +45,23 @@ const targetAddressDeployer = "0x2924a6C59115299A5945cA1dF6D73ABA526C97bd";
     const ballotContract = await ballotContractFactory.attach(
       contractAddressLast2);
 
-    const chairpensonTest = await ballotContract.chairperson();
-    console.log(`this is the chairperson ${chairpensonTest}`);
+    // const chairpensonTest = await ballotContract.chairperson();
+    // console.log(`this is the chairperson ${chairpensonTest}`);
 
-    const chairpensonVoter = await ballotContract.voters(signer.address);
-    console.log(`this is the vote of chairperson ${chairpensonVoter}`)
+    // const chairpensonVoter = await ballotContract.voters(signer.address);
+    // console.log(`this is the vote of chairperson ${chairpensonVoter}`)
 
     const winnerName = await ballotContract.winnerName();
     console.log(`this is the vote of winnerName ${winnerName}`)
 
-    const voters = await ballotContract.voters(targetAddress4);
-    console.log(`this is the voters for address4 ${voters}`)
+    // const voters = await ballotContract.voters(targetAddress4);
+    // console.log(`this is the voters for address4 ${voters}`)
 
-    const VoterWinning = await ballotContract.winningProposal();
-    console.log(`this is the voter winning ${VoterWinning}`)
+    // const VoterWinning = await ballotContract.winningProposal();
+    // console.log(`this is the voter winning ${VoterWinning}`)
 
-    const proposalView = await ballotContract.proposals(1)
-    console.log(`this is the proposal select me for view ${proposalView}`)
+    // const proposalView = await ballotContract.proposals(1)
+    // console.log(`this is the proposal select me for view ${proposalView}`)
 
     // const Vote = await ballotContract.vote(1);
     // console.log(Vote)
@@ -70,7 +71,7 @@ const targetAddressDeployer = "0x2924a6C59115299A5945cA1dF6D73ABA526C97bd";
     // console.log(delegate2.hash)
    
       
-    // const tx= await ballotContract.giveRightToVote(targetAddress6);
+    // const tx= await ballotContract.giveRightToVote(targetAddressCoWork);
     // await tx.wait();
     //   console.log(tx.hash);
     //   console.log(`this is of txhash of the giveRightToVote ${tx.hash}`)

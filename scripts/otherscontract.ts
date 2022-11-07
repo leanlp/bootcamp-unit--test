@@ -8,18 +8,8 @@ dotenv.config()
 
 
 
-function convertStringArrayToBytes32(array: string[]) {
-    const bytes32Array = [];
-    for (let index = 0; index < array.length; index++) {
-      bytes32Array.push(ethers.utils.formatBytes32String(array[index]));
-    }
-    return bytes32Array;
-  }
-
 async function main()  {
-    // console.log("Deploying");
-    // console.log("proposals: ")
-    const contractAddress = "0xe5f683a8c2ce61a8ec2f0cdc375da1dee8b7e4ab";
+    const contractAddressMintNFT = "0x189462ABf43028A13Fa0F7fEEA53E2f74cC3f0B6";
     const contractAddressLast = "0x9112d7234C6EEB135706F36bb0fDc1591c51F98F"
     const contractAddressLast2 = "0x046C9e1878246EB431Ce23664Ab663b5dACEe060"
     const targetAddress2 = "0xD2A40840c4584a6419A5eA5Fff923c5556e86596";
@@ -38,12 +28,12 @@ const targetAddress6 = "0xE684E017d41D4AB9F924a572a316C4BEa9e4152f";
     
     const ballotContractFactory = new Ballot__factory(signer);
     const ballotContract = await ballotContractFactory.attach(
-        contractAddressLast);
+      contractAddressMintNFT);
 
-    const chairpensonTest = await ballotContract.chairperson();
-    console.log(chairpensonTest);
-    const chairpensonVoter = await ballotContract.voters(signer.address);
-    console.log(chairpensonVoter)
+    // const chairpensonTest = await ballotContract.chairperson();
+    // console.log(chairpensonTest);
+    // const chairpensonVoter = await ballotContract.voters(signer.address);
+    // console.log(chairpensonVoter)
     // const Voter = await ballotContract.voters;
     // console.log(Voter)
 
@@ -58,10 +48,10 @@ const targetAddress6 = "0xE684E017d41D4AB9F924a572a316C4BEa9e4152f";
     // console.log(delegate2.hash)
    
       
-    const tx= await ballotContract.giveRightToVote(targetAddress6);
-    await tx.wait();
-      console.log(tx.hash);
-      console.log(`this is of txhash of the giveRightToVote ${tx.hash}`)
+    // const tx= await ballotContract.giveRightToVote(targetAddress6);
+    // await tx.wait();
+    //   console.log(tx.hash);
+    //   console.log(`this is of txhash of the giveRightToVote ${tx.hash}`)
 }
 main().catch((error) => {
   console.error(error);

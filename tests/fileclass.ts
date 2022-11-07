@@ -13,7 +13,7 @@ function convertStringArrayToBytes32(array: string[]) {
   return bytes32Array;
 }
 
-describe("Ballot", () => {
+describe("Ballot", async () => {
     let ballotContract: Ballot;
     let accounts: SignerWithAddress[];
     beforeEach(async ()=> {
